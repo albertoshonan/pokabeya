@@ -116,7 +116,7 @@ export default function Home() {
                 今すぐ予約する
               </Link>
               <Link
-                href="#"
+                href="https://page.line.me/515smhfk?oat_content=url&openQrModal=true" target="_blank" rel="noopener noreferrer"
                 className="border border-light text-dark text-sm px-6 py-3.5 rounded-full hover:border-black transition-colors flex items-center gap-2"
               >
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -296,7 +296,7 @@ export default function Home() {
             今すぐ予約する
           </Link>
           <Link
-            href="#"
+            href="https://page.line.me/515smhfk?oat_content=url&openQrModal=true" target="_blank" rel="noopener noreferrer"
             className="border border-light text-dark text-sm px-6 py-3.5 rounded-full hover:border-black transition-colors flex items-center gap-2"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

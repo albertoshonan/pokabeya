@@ -204,7 +204,7 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
                 今すぐ予約する
               </Link>
               <Link
-                href="#"
+                href="https://page.line.me/515smhfk?oat_content=url&openQrModal=true" target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full text-center border border-light text-dark py-3 rounded-full text-sm hover:border-black transition-colors"
               >
                 <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
