@@ -173,16 +173,21 @@ export default function Home() {
             <Link
               key={room.slug}
               href={`/rooms/${room.slug}`}
-              className="group bg-off rounded-2xl p-6 text-center hover:-translate-y-0.5 hover:shadow-lg transition-all"
+              className="group bg-off rounded-2xl overflow-hidden text-center hover:-translate-y-0.5 hover:shadow-lg transition-all"
             >
-              <div className="w-14 h-14 bg-gradient-to-br from-light to-off rounded-xl mx-auto mb-3 flex items-center justify-center text-mid">
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                  <polyline points="9 22 9 12 15 12 15 22" />
-                </svg>
+              <div className="relative h-32 overflow-hidden">
+                <Image
+                  src={room.images[0]}
+                  alt={room.nameJa}
+                  fill
+                  sizes="(max-width: 640px) 50vw, 20vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
-              <h4 className="text-sm font-semibold text-dark mb-0.5">{room.nameJa}</h4>
-              <p className="text-xs text-mid">{room.area}</p>
+              <div className="p-4">
+                <h4 className="text-sm font-semibold text-dark mb-0.5">{room.nameJa}</h4>
+                <p className="text-xs text-mid">{room.area}</p>
+              </div>
             </Link>
           ))}
         </div>
