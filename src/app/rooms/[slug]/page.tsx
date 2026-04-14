@@ -80,13 +80,9 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
             </div>
           ))}
         </div>
-        {/* モバイル: 縦スクロール */}
-        <div className="sm:hidden flex flex-col gap-2 rounded-2xl overflow-hidden">
-          {room.images.map((img, i) => (
-            <div key={i} className="relative h-[250px]">
-              <Image src={img} alt={`${room.nameJa} 写真${i + 1}`} fill sizes="100vw" className="object-cover rounded-xl" />
-            </div>
-          ))}
+        {/* モバイル: メイン1枚 */}
+        <div className="sm:hidden relative h-[250px] rounded-2xl overflow-hidden">
+          <Image src={room.images[0]} alt={room.nameJa} fill sizes="100vw" className="object-cover" />
         </div>
       </div>
 
