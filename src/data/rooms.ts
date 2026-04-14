@@ -6,6 +6,7 @@ export type Room = {
   tagline: string;
   description: string;
   maxGuests: number;
+  images: string[];
   address: {
     zip?: string;
     lines: string[];
@@ -27,6 +28,7 @@ export const rooms: Room[] = [
     name: "Akibabeya",
     nameJa: "アキバベヤ",
     area: "秋葉原",
+    images: ["/images/S__34218069_0.jpg", "/images/S__34218070_0.jpg"],
     tagline: "完全無人 RFID ポーカールーム — 銀座線末広町駅 徒歩2分",
     description:
       "アキバベヤは銀座線末広町駅から徒歩2分、JR秋葉原駅からも徒歩8分の好立地。RFIDテーブルはシャフラー内蔵型で広々としたスペース。テーブルトップを使えば通常のダイニングテーブルとしても利用可能。配信にも対応しています。\n\nスタッフは遠隔でPCやLINEにてサポート。ファイヤースティック・スピーカーも備え、ポーカーをしながらのエンターテイメントも充実。POKER GOの視聴も可能です。部屋内での飲食自由、加熱式タバコOK、持ち込みも自由です。",
@@ -62,6 +64,7 @@ export const rooms: Room[] = [
     name: "Jukubeya",
     nameJa: "ジュクベヤ",
     area: "新宿",
+    images: ["/images/jukubeya.jpg"],
     tagline: "完全無人 RFID ポーカールーム — JR新宿駅西口 徒歩5分",
     description:
       "ジュクベヤはJR新宿駅西口から徒歩5分の好立地にある完全無人のプライベートポーカールームです。RFIDテーブル・オートシャフラー・チップ・カードなど全て完備。手ぶらでお越しいただけます。\n\nスタッフは遠隔でPCやLINEにてサポート。ファイヤースティック・スピーカーも備え、ポーカーをしながらのエンターテイメントも充実。POKER GOの視聴も可能です。部屋内での飲食自由、加熱式タバコOK、持ち込みも自由です。",
@@ -97,6 +100,7 @@ export const rooms: Room[] = [
     name: "Shibubeya",
     nameJa: "シブベヤ",
     area: "渋谷",
+    images: ["/images/S__34218076_0.jpg", "/images/S__34218077_0.jpg"],
     tagline: "完全無人 RFID ポーカールーム — 渋谷ヒカリエ近く",
     description:
       "シブベヤは渋谷ヒカリエからすぐの立地にある完全無人プライベートポーカールーム。RFIDテーブル・オートシャフラー・チップ・カードなど全て完備。手ぶらでお越しいただけます。\n\nスタッフは遠隔でPCやLINEにてサポート。部屋内での飲食自由、加熱式タバコOK。",
@@ -131,6 +135,7 @@ export const rooms: Room[] = [
     name: "Mitabeya",
     nameJa: "ミタベヤ",
     area: "三田",
+    images: ["/images/S__34218071_0.jpg", "/images/S__34218075_0.jpg"],
     tagline: "完全無人 RFID ポーカールーム — 慶應義塾大学東門の真横",
     description:
       "ミタベヤは慶應義塾大学東門の真横に位置する完全無人プライベートポーカールーム。日本の若いポーカープレイヤーたちに手頃な価格でポーカーをプレイしてもらいたいという想いで設立。RFIDテーブル・オートシャフラー・チップ・カードなど全て完備。手ぶらでお越しいただけます。\n\nスタッフは遠隔でPCやLINEにてサポート。ファイヤースティック・スピーカーも備え、ポーカーをしながらのエンターテイメントも充実。POKER GOの視聴も可能です。部屋内での飲食自由、加熱式タバコOK、持ち込みも自由です。",
@@ -166,6 +171,7 @@ export const rooms: Room[] = [
     name: "Hamabeya",
     nameJa: "ハマベヤ",
     area: "横浜",
+    images: ["/images/S__34218072_0.jpg", "/images/S__34218073_0.jpg", "/images/S__34218074_0.jpg"],
     tagline: "完全無人 RFID ポーカールーム — 京急黄金町駅 徒歩5分",
     description:
       "ハマベヤは横浜・伊勢佐木モールエリアに位置するポカベヤ3号店。完全無人のプライベートポーカールーム。RFIDテーブル・オートシャフラー完備。サイドカメラによる配信にも対応しています。手ぶらでお越しいただけます。\n\nスタッフは遠隔でPCやLINEにてサポート。ファイヤースティック・スピーカーも備え、ポーカーをしながらのエンターテイメントも充実。POKER GOの視聴も可能です。部屋内での飲食自由、加熱式タバコOK、持ち込みも自由です。",
