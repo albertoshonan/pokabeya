@@ -61,39 +61,36 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
 
       {/* Gallery */}
       <div className="px-4 sm:px-10 pb-[60px] max-w-[1200px] mx-auto">
-        {room.images.length >= 3 ? (
-          <div className="grid grid-cols-3 grid-rows-2 gap-2 rounded-2xl overflow-hidden h-[480px] max-sm:grid-cols-1 max-sm:grid-rows-3 max-sm:h-auto">
-            <div className="row-span-2 max-sm:row-span-1 relative">
+        <div className="grid grid-cols-3 grid-rows-2 gap-2 rounded-2xl overflow-hidden h-[480px] max-sm:grid-cols-1 max-sm:grid-rows-3 max-sm:h-auto">
+          {/* メイン（左・2行分） */}
+          <div className="row-span-2 max-sm:row-span-1 relative">
+            {room.images[0] ? (
               <Image src={room.images[0]} alt={`${room.nameJa} メイン`} fill sizes="(max-width: 640px) 100vw, 40vw" className="object-cover" />
-            </div>
-            <div className="relative max-sm:hidden">
-              <Image src={room.images[1]} alt={`${room.nameJa} 写真2`} fill sizes="30vw" className="object-cover" />
-            </div>
-            <div className="relative max-sm:hidden">
-              <Image src={room.images[2]} alt={`${room.nameJa} 写真3`} fill sizes="30vw" className="object-cover" />
-            </div>
-            {room.images[3] ? (
-              <div className="relative max-sm:hidden">
-                <Image src={room.images[3]} alt={`${room.nameJa} 写真4`} fill sizes="30vw" className="object-cover" />
-              </div>
             ) : (
-              <div className="bg-gradient-to-br from-[#e2e2e2] to-[#eee] max-sm:hidden" />
+              <div className="w-full h-full bg-off" />
             )}
-            <div className="bg-gradient-to-br from-[#e2e2e2] to-[#eee] max-sm:hidden" />
           </div>
-        ) : room.images.length === 2 ? (
-          <div className="grid grid-cols-2 gap-2 rounded-2xl overflow-hidden h-[400px]">
-            {room.images.map((img, i) => (
-              <div key={i} className="relative">
-                <Image src={img} alt={`${room.nameJa} 写真${i + 1}`} fill sizes="50vw" className="object-cover" />
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="relative rounded-2xl overflow-hidden h-[400px]">
-            <Image src={room.images[0]} alt={room.nameJa} fill sizes="100vw" className="object-cover" />
-          </div>
-        )}
+          {/* 右上2枚 */}
+          {[1, 2].map((i) => (
+            <div key={i} className="relative max-sm:hidden">
+              {room.images[i] ? (
+                <Image src={room.images[i]} alt={`${room.nameJa} 写真${i + 1}`} fill sizes="30vw" className="object-cover" />
+              ) : (
+                <div className="w-full h-full bg-off" />
+              )}
+            </div>
+          ))}
+          {/* 右下2枚 */}
+          {[3, 4].map((i) => (
+            <div key={i} className="relative max-sm:hidden">
+              {room.images[i] ? (
+                <Image src={room.images[i]} alt={`${room.nameJa} 写真${i + 1}`} fill sizes="30vw" className="object-cover" />
+              ) : (
+                <div className="w-full h-full bg-off" />
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Content */}
