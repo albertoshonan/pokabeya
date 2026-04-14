@@ -196,7 +196,9 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
             {/* CTA Card */}
             <div className="border border-light rounded-2xl p-7 mb-5">
               <Link
-                href="#"
+                href="https://reserva.be/pokerbear"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block w-full text-center bg-black text-white py-3.5 rounded-full text-sm font-medium mb-2.5 hover:opacity-80 transition-opacity"
               >
                 今すぐ予約する

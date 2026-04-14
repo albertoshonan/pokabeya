@@ -108,7 +108,9 @@ export default function Home() {
             </p>
             <div className="flex gap-3 flex-wrap">
               <Link
-                href="#"
+                href="https://reserva.be/pokerbear"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-black text-white text-sm px-7 py-3.5 rounded-full hover:opacity-80 transition-opacity"
               >
                 今すぐ予約する
@@ -286,7 +288,9 @@ export default function Home() {
         <p className="text-sm text-gray mb-10">完全無人 RFID ポーカールーム</p>
         <div className="flex gap-3 flex-wrap justify-center mb-8">
           <Link
-            href="#"
+            href="https://reserva.be/pokerbear"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-black text-white text-sm px-8 py-3.5 rounded-full hover:opacity-80 transition-opacity"
           >
             今すぐ予約する
