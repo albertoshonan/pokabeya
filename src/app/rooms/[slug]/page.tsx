@@ -61,18 +61,17 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
 
       {/* Gallery */}
       <div className="px-4 sm:px-10 pb-[60px] max-w-[1200px] mx-auto">
-        <div className="grid grid-cols-3 grid-rows-2 gap-2 rounded-2xl overflow-hidden h-[480px] max-sm:grid-cols-1 max-sm:grid-rows-3 max-sm:h-auto">
-          {/* メイン（左・2行分） */}
-          <div className="row-span-2 max-sm:row-span-1 relative">
+        {/* PC: 3列×2行 */}
+        <div className="hidden sm:grid grid-cols-3 grid-rows-2 gap-2 rounded-2xl overflow-hidden h-[480px]">
+          <div className="row-span-2 relative">
             {room.images[0] ? (
-              <Image src={room.images[0]} alt={`${room.nameJa} メイン`} fill sizes="(max-width: 640px) 100vw, 40vw" className="object-cover" />
+              <Image src={room.images[0]} alt={`${room.nameJa} メイン`} fill sizes="40vw" className="object-cover" />
             ) : (
               <div className="w-full h-full bg-off" />
             )}
           </div>
-          {/* 右上2枚 */}
-          {[1, 2].map((i) => (
-            <div key={i} className="relative max-sm:hidden">
+          {[1, 2, 3, 4].map((i) => (
+            <div key={i} className="relative">
               {room.images[i] ? (
                 <Image src={room.images[i]} alt={`${room.nameJa} 写真${i + 1}`} fill sizes="30vw" className="object-cover" />
               ) : (
@@ -80,14 +79,12 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
               )}
             </div>
           ))}
-          {/* 右下2枚 */}
-          {[3, 4].map((i) => (
-            <div key={i} className="relative max-sm:hidden">
-              {room.images[i] ? (
-                <Image src={room.images[i]} alt={`${room.nameJa} 写真${i + 1}`} fill sizes="30vw" className="object-cover" />
-              ) : (
-                <div className="w-full h-full bg-off" />
-              )}
+        </div>
+        {/* モバイル: 縦スクロール */}
+        <div className="sm:hidden flex flex-col gap-2 rounded-2xl overflow-hidden">
+          {room.images.map((img, i) => (
+            <div key={i} className="relative h-[250px]">
+              <Image src={img} alt={`${room.nameJa} 写真${i + 1}`} fill sizes="100vw" className="object-cover rounded-xl" />
             </div>
           ))}
         </div>
