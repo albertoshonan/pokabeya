@@ -100,7 +100,7 @@ export const rooms: Room[] = [
     name: "Shibubeya",
     nameJa: "シブベヤ",
     area: "渋谷",
-    images: ["/images/S__34218076_0.jpg", "/images/S__34218077_0.jpg"],
+    images: ["/images/shibubeya.jpg", "/images/S__34218076_0.jpg", "/images/S__34218077_0.jpg"],
     tagline: "完全無人 RFID ポーカールーム — 渋谷ヒカリエ近く",
     description:
       "シブベヤは渋谷ヒカリエからすぐの立地にある完全無人プライベートポーカールーム。RFIDテーブル・オートシャフラー・チップ・カードなど全て完備。手ぶらでお越しいただけます。\n\nスタッフは遠隔でPCやLINEにてサポート。部屋内での飲食自由、加熱式タバコOK。",
