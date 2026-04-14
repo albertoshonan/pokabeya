@@ -52,7 +52,9 @@ export default function Nav({ showBack = false }: { showBack?: boolean }) {
             </ul>
           )}
           <Link
-            href="#"
+            href="https://reserva.be/pokerbear"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-black text-white text-[0.72rem] px-5 py-2 rounded-full tracking-wider hover:opacity-80 transition-opacity"
           >
             予約する
