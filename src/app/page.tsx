@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 import { rooms, formatPrice } from "@/data/rooms";
 
 const pricingPlans = [
@@ -162,124 +163,133 @@ export default function Home() {
       </section>
 
       {/* Spaces */}
-      <section id="spaces" className="max-w-[1200px] mx-auto px-5 sm:px-10 py-20">
-        <div className="mb-14">
-          <p className="text-xs tracking-[0.15em] text-mid mb-1">SPACES</p>
-          <h2 className="font-[family-name:var(--font-playfair)] italic text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold text-black leading-tight">
-            Our Rooms
-          </h2>
-          <p className="text-sm text-mid mt-1">スペース紹介</p>
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-          {rooms.map((room) => (
-            <Link
-              key={room.slug}
-              href={`/rooms/${room.slug}`}
-              className="group bg-off rounded-2xl overflow-hidden text-center hover:-translate-y-0.5 hover:shadow-lg transition-all"
-            >
-              <div className="relative h-32 overflow-hidden">
-                <Image
-                  src={room.images[0]}
-                  alt={room.nameJa}
-                  fill
-                  sizes="(max-width: 640px) 50vw, 20vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-4">
-                <h4 className="text-sm font-semibold text-dark mb-0.5">{room.nameJa}</h4>
-                <p className="text-xs text-mid">{room.area}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <ScrollReveal>
+        <section id="spaces" className="max-w-[1200px] mx-auto px-5 sm:px-10 py-20">
+          <div className="mb-14">
+            <p className="text-xs tracking-[0.15em] text-mid mb-1">SPACES</p>
+            <h2 className="font-[family-name:var(--font-playfair)] italic text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold text-black leading-tight">
+              Our Rooms
+            </h2>
+            <p className="text-sm text-mid mt-1">スペース紹介</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {rooms.map((room) => (
+              <Link
+                key={room.slug}
+                href={`/rooms/${room.slug}`}
+                className="group bg-off rounded-2xl overflow-hidden text-center hover:-translate-y-0.5 hover:shadow-lg transition-all"
+              >
+                <div className="relative h-32 overflow-hidden">
+                  <Image
+                    src={room.images[0]}
+                    alt={room.nameJa}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 20vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-4">
+                  <h4 className="text-sm font-semibold text-dark mb-0.5">{room.nameJa}</h4>
+                  <p className="text-xs text-mid">{room.area}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* Pricing */}
-      <section id="pricing" className="max-w-[1200px] mx-auto px-5 sm:px-10 py-20">
-        <div className="mb-14">
-          <p className="text-xs tracking-[0.15em] text-mid mb-1">PRICING</p>
-          <h2 className="font-[family-name:var(--font-playfair)] italic text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold text-black leading-tight">
-            Plans
-          </h2>
-          <p className="text-sm text-mid mt-1">料金プラン</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-          {pricingPlans.map((plan) => (
-            <div
-              key={plan.label}
-              className={`rounded-2xl p-7 text-center transition-all ${
-                plan.featured
-                  ? "bg-black text-white sm:scale-[1.03]"
-                  : "border border-light"
-              }`}
-            >
-              <p className={`text-xs tracking-widest mb-1.5 ${plan.featured ? "text-[#666]" : "text-mid"}`}>
-                {plan.label}
-              </p>
-              <p className={`text-3xl font-bold leading-tight ${plan.featured ? "text-white" : "text-black"}`}>
-                {formatPrice(plan.price)}
-              </p>
-              <p className={`text-xs mb-1.5 ${plan.featured ? "text-[#ccc]" : "text-mid"}`}>/ 1h</p>
-              <p className={`text-xs ${plan.featured ? "text-[#888]" : "text-gray"}`}>{plan.time}</p>
-            </div>
-          ))}
-        </div>
-        <div className="bg-off rounded-xl p-4 text-xs text-gray leading-relaxed">
-          ※ 料金は1部屋あたりの料金です（人数割りではありません）<br />
-          ※ パック料金もあります（6h ¥13,200〜）<br />
-          ※ 延長は予約システムまたはLINEから対応可能です
-        </div>
-      </section>
+      <ScrollReveal>
+        <section id="pricing" className="max-w-[1200px] mx-auto px-5 sm:px-10 py-20">
+          <div className="mb-14">
+            <p className="text-xs tracking-[0.15em] text-mid mb-1">PRICING</p>
+            <h2 className="font-[family-name:var(--font-playfair)] italic text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold text-black leading-tight">
+              Plans
+            </h2>
+            <p className="text-sm text-mid mt-1">料金プラン</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            {pricingPlans.map((plan) => (
+              <div
+                key={plan.label}
+                className={`rounded-2xl p-7 text-center transition-all ${
+                  plan.featured
+                    ? "bg-black text-white sm:scale-[1.03]"
+                    : "border border-light"
+                }`}
+              >
+                <p className={`text-xs tracking-widest mb-1.5 ${plan.featured ? "text-[#666]" : "text-mid"}`}>
+                  {plan.label}
+                </p>
+                <p className={`text-3xl font-bold leading-tight ${plan.featured ? "text-white" : "text-black"}`}>
+                  {formatPrice(plan.price)}
+                </p>
+                <p className={`text-xs mb-1.5 ${plan.featured ? "text-[#ccc]" : "text-mid"}`}>/ 1h</p>
+                <p className={`text-xs ${plan.featured ? "text-[#888]" : "text-gray"}`}>{plan.time}</p>
+              </div>
+            ))}
+          </div>
+          <div className="bg-off rounded-xl p-4 text-xs text-gray leading-relaxed">
+            ※ 料金は1部屋あたりの料金です（人数割りではありません）<br />
+            ※ パック料金もあります（6h ¥13,200〜）<br />
+            ※ 延長は予約システムまたはLINEから対応可能です
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* Flow */}
-      <section id="flow" className="max-w-[1200px] mx-auto px-5 sm:px-10 py-20">
-        <div className="mb-14">
-          <p className="text-xs tracking-[0.15em] text-mid mb-1">FLOW</p>
-          <h2 className="font-[family-name:var(--font-playfair)] italic text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold text-black leading-tight">
-            How It Works
-          </h2>
-          <p className="text-sm text-mid mt-1">ご利用の流れ</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {steps.map((s) => (
-            <div key={s.step} className="bg-off rounded-2xl p-7 text-center">
-              <p className="text-[0.62rem] tracking-widest text-mid mb-2.5">{s.step}</p>
-              <div className="w-[52px] h-[52px] bg-white rounded-full mx-auto mb-3 flex items-center justify-center text-black">
-                {s.icon}
+      <ScrollReveal>
+        <section id="flow" className="max-w-[1200px] mx-auto px-5 sm:px-10 py-20">
+          <div className="mb-14">
+            <p className="text-xs tracking-[0.15em] text-mid mb-1">FLOW</p>
+            <h2 className="font-[family-name:var(--font-playfair)] italic text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold text-black leading-tight">
+              How It Works
+            </h2>
+            <p className="text-sm text-mid mt-1">ご利用の流れ</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {steps.map((s) => (
+              <div key={s.step} className="bg-off rounded-2xl p-7 text-center">
+                <p className="text-[0.62rem] tracking-widest text-mid mb-2.5">{s.step}</p>
+                <div className="w-[52px] h-[52px] bg-white rounded-full mx-auto mb-3 flex items-center justify-center text-black">
+                  {s.icon}
+                </div>
+                <h4 className="text-base font-semibold">{s.title}</h4>
+                <p className="text-xs text-gray mt-1.5">{s.desc}</p>
               </div>
-              <h4 className="text-base font-semibold">{s.title}</h4>
-              <p className="text-xs text-gray mt-1.5">{s.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* FAQ */}
-      <section id="faq" className="max-w-[1200px] mx-auto px-5 sm:px-10 py-20">
-        <div className="mb-14">
-          <p className="text-xs tracking-[0.15em] text-mid mb-1">FAQ</p>
-          <h2 className="font-[family-name:var(--font-playfair)] italic text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold text-black leading-tight">
-            Questions
-          </h2>
-          <p className="text-sm text-mid mt-1">よくある質問</p>
-        </div>
-        <div className="max-w-2xl">
-          {faqs.map((faq) => (
-            <div key={faq.q} className="border-b border-light py-5">
-              <div className="flex items-start gap-2.5">
-                <span className="font-[family-name:var(--font-playfair)] italic font-bold text-base text-black shrink-0">
-                  Q
-                </span>
-                <p className="text-[0.95rem] font-medium text-dark">{faq.q}</p>
+      <ScrollReveal>
+        <section id="faq" className="max-w-[1200px] mx-auto px-5 sm:px-10 py-20">
+          <div className="mb-14">
+            <p className="text-xs tracking-[0.15em] text-mid mb-1">FAQ</p>
+            <h2 className="font-[family-name:var(--font-playfair)] italic text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold text-black leading-tight">
+              Questions
+            </h2>
+            <p className="text-sm text-mid mt-1">よくある質問</p>
+          </div>
+          <div className="max-w-2xl">
+            {faqs.map((faq) => (
+              <div key={faq.q} className="border-b border-light py-5">
+                <div className="flex items-start gap-2.5">
+                  <span className="font-[family-name:var(--font-playfair)] italic font-bold text-base text-black shrink-0">
+                    Q
+                  </span>
+                  <p className="text-[0.95rem] font-medium text-dark">{faq.q}</p>
+                </div>
+                <p className="text-sm text-gray mt-2.5 pl-7 leading-relaxed">{faq.a}</p>
               </div>
-              <p className="text-sm text-gray mt-2.5 pl-7 leading-relaxed">{faq.a}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* CTA */}
+      <ScrollReveal>
       <section className="bg-off text-center py-24 px-5">
         <p className="text-xs tracking-[0.5em] text-mid mb-9">P O K A B E Y A</p>
         <h2 className="font-[family-name:var(--font-playfair)] italic text-[clamp(2.5rem,6vw,4.5rem)] font-normal text-black mb-5">
@@ -315,6 +325,7 @@ export default function Home() {
           070-9024-8529
         </a>
       </section>
+      </ScrollReveal>
 
       <Footer />
     </>

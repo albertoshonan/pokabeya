@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 import { rooms, getRoomBySlug, getOtherRooms, formatPrice } from "@/data/rooms";
 
 export function generateStaticParams() {
@@ -60,6 +61,7 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
       </div>
 
       {/* Gallery */}
+      <ScrollReveal>
       <div className="px-4 sm:px-10 pb-[60px] max-w-[1200px] mx-auto">
         {/* PC: 3列×2行 */}
         <div className="hidden sm:grid grid-cols-3 grid-rows-2 gap-2 rounded-2xl overflow-hidden h-[480px]">
@@ -85,8 +87,10 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
           <Image src={room.images[0]} alt={room.nameJa} fill sizes="100vw" className="object-cover" />
         </div>
       </div>
+      </ScrollReveal>
 
       {/* Content */}
+      <ScrollReveal>
       <div className="max-w-[1200px] mx-auto px-4 sm:px-10 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-12">
           {/* Main */}
@@ -276,8 +280,10 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
           </div>
         </div>
       </div>
+      </ScrollReveal>
 
       {/* Other Rooms */}
+      <ScrollReveal>
       <div className="max-w-[1200px] mx-auto px-4 sm:px-10 py-16 border-t border-light">
         <h3 className="text-lg font-semibold text-black mb-6">他のスペース</h3>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
@@ -304,6 +310,7 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
           ))}
         </div>
       </div>
+      </ScrollReveal>
 
       <Footer />
     </>
