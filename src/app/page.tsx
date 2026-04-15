@@ -91,7 +91,7 @@ export default function Home() {
       <Nav />
 
       {/* Hero */}
-      <section className="pt-14">
+      <section className="pt-16">
         <div className="grid grid-cols-1 md:grid-cols-2 min-h-[480px]">
           {/* Left: Text */}
           <div className="flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-16">

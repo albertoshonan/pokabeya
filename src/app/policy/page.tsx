@@ -12,7 +12,7 @@ export default function PolicyPage() {
     <>
       <Nav showBack />
 
-      <div className="pt-[100px] pb-20 px-4 sm:px-10 max-w-[800px] mx-auto">
+      <div className="pt-[108px] pb-20 px-4 sm:px-10 max-w-[800px] mx-auto">
         <h1 className="font-[family-name:var(--font-playfair)] italic text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-black mb-2">
           Terms of Use
         </h1>
