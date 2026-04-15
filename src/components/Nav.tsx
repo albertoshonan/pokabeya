@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { href: "#spaces", label: "スペース" },
@@ -12,11 +13,15 @@ export default function Nav({ showBack = false }: { showBack?: boolean }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/92 backdrop-blur-xl border-b border-black/6">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-10 h-14 flex items-center justify-between">
-        <Link
-          href="/"
-          className="font-[family-name:var(--font-playfair)] italic text-lg text-black"
-        >
-          Pokabeya
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/images/logo-dark.png"
+            alt="Pokabeya"
+            width={120}
+            height={40}
+            className="h-9 w-auto"
+            priority
+          />
         </Link>
         <div className="flex items-center gap-6">
           {showBack ? (
