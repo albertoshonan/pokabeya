@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP, Playfair_Display } from "next/font/google";
+import SplashScreen from "@/components/SplashScreen";
 import "./globals.css";
 
 const notoSansJP = Noto_Sans_JP({
@@ -29,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`${notoSansJP.variable} ${playfair.variable}`}>
       <body className="min-h-screen bg-white text-dark font-[family-name:var(--font-noto)] leading-relaxed">
+        <SplashScreen />
         {children}
       </body>
     </html>
