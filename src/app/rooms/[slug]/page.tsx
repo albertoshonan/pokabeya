@@ -32,7 +32,7 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
       <Nav showBack />
 
       {/* Hero */}
-      <div className="pt-[100px] pb-[60px] px-4 sm:px-10 max-w-[1200px] mx-auto">
+      <div className="pt-[108px] pb-[60px] px-4 sm:px-10 max-w-[1200px] mx-auto">
         <div className="text-xs text-mid mb-6 flex items-center gap-2">
           <Link href="/" className="text-mid hover:text-black transition-colors">Pokabeya</Link>
           <span>/</span>

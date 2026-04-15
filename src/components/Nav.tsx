@@ -12,14 +12,14 @@ const navLinks = [
 export default function Nav({ showBack = false }: { showBack?: boolean }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/92 backdrop-blur-xl border-b border-black/6">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-10 h-14 flex items-center justify-between">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-10 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <Image
             src="/images/logo-dark.png"
             alt="Pokabeya"
-            width={120}
-            height={40}
-            className="h-9 w-auto"
+            width={160}
+            height={53}
+            className="h-12 w-auto"
             priority
           />
         </Link>
