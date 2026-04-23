@@ -115,7 +115,8 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="bg-black text-white text-sm px-7 py-3.5 rounded-full hover:opacity-80 transition-opacity"
               >
-                ネット予約
+                <span>ネット予約</span>
+                <span className="text-xs text-white/60">(クレジットOnly)</span>
               </Link>
               <Link
                 href="https://page.line.me/515smhfk?oat_content=url&openQrModal=true"
@@ -126,7 +127,8 @@ export default function Home() {
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                 </svg>
-                LINE予約
+                <span>LINE予約</span>
+                <span className="text-xs text-mid">(PayPay Only)</span>
               </Link>
               <PhoneButton />
             </div>

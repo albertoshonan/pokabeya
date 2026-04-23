@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 
-export default function PhoneButton() {
+export default function PhoneButton({ size = "default" }: { size?: "default" | "small" }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -20,12 +20,17 @@ export default function PhoneButton() {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="border border-light text-dark text-sm px-6 py-3.5 rounded-full hover:border-black transition-colors flex items-center gap-2"
+        className={
+          size === "small"
+            ? "bg-black text-white text-[0.72rem] px-4 py-2 rounded-full tracking-wider hover:opacity-80 transition-opacity flex items-center gap-1.5"
+            : "border border-light text-dark text-sm px-6 py-3.5 rounded-full hover:border-black transition-colors flex items-center gap-2"
+        }
       >
-        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg className={size === "small" ? "w-3.5 h-3.5" : "w-4 h-4"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
         </svg>
-        電話予約
+        <span>電話予約</span>
+        <span className={size === "small" ? "text-[0.6rem] text-white/60" : "text-xs text-mid"}>(PayPay OK)</span>
       </button>
       {open && (
         <div className="absolute left-0 top-full mt-2 bg-white border border-light rounded-xl shadow-lg overflow-hidden z-50 min-w-[180px]">

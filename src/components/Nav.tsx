@@ -1,13 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-
-const navLinks = [
-  { href: "#spaces", label: "スペース" },
-  { href: "#pricing", label: "料金" },
-  { href: "#flow", label: "ご利用の流れ" },
-  { href: "#access", label: "アクセス" },
-  { href: "#faq", label: "FAQ" },
-];
+import PhoneButton from "@/components/PhoneButton";
 
 export default function Nav({ showBack = false }: { showBack?: boolean }) {
   return (
@@ -23,7 +16,7 @@ export default function Nav({ showBack = false }: { showBack?: boolean }) {
             priority
           />
         </Link>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-2">
           {showBack ? (
             <Link
               href="/"
@@ -43,27 +36,28 @@ export default function Nav({ showBack = false }: { showBack?: boolean }) {
               TOPに戻る
             </Link>
           ) : (
-            <ul className="hidden md:flex items-center gap-7">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-xs text-gray hover:text-black transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <>
+              <Link
+                href="https://reserva.be/pokerbear"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-black text-white text-[0.72rem] px-4 py-2 rounded-full tracking-wider hover:opacity-80 transition-opacity hidden sm:flex items-center gap-1.5"
+              >
+                <span>ネット予約</span>
+                <span className="text-[0.6rem] text-white/60">(クレジットOnly)</span>
+              </Link>
+              <Link
+                href="https://page.line.me/515smhfk?oat_content=url&openQrModal=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-black text-white text-[0.72rem] px-4 py-2 rounded-full tracking-wider hover:opacity-80 transition-opacity hidden sm:flex items-center gap-1.5"
+              >
+                <span>LINE予約</span>
+                <span className="text-[0.6rem] text-white/60">(PayPay Only)</span>
+              </Link>
+              <PhoneButton size="small" />
+            </>
           )}
-          <Link
-            href="https://reserva.be/pokerbear"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-black text-white text-[0.72rem] px-5 py-2 rounded-full tracking-wider hover:opacity-80 transition-opacity"
-          >
-            予約する
-          </Link>
         </div>
       </div>
     </nav>
