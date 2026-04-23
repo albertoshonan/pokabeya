@@ -117,15 +117,18 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
                 設備・アメニティ
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                {room.equipment.map((eq) => (
-                  <div key={eq} className="bg-off rounded-xl p-4 flex items-center gap-2.5">
-                    <svg className="w-5 h-5 text-black shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                      <polyline points="22 4 12 14.01 9 11.01" />
-                    </svg>
-                    <span className="text-sm text-dark">{eq}</span>
-                  </div>
-                ))}
+                {room.equipment.map((eq) => {
+                  const isHighlight = eq === "RFID搭載ポーカーテーブル" || eq === "配信用ウェブカメラ";
+                  return (
+                    <div key={eq} className={`rounded-xl p-4 flex items-center gap-2.5 ${isHighlight ? "bg-red-50" : "bg-off"}`}>
+                      <svg className={`w-5 h-5 shrink-0 ${isHighlight ? "text-red-500" : "text-black"}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                      </svg>
+                      <span className={`text-sm font-medium ${isHighlight ? "text-red-500" : "text-dark"}`}>{eq}</span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
