@@ -163,7 +163,7 @@ export default function Home() {
             >
               <span className="w-6 h-6 text-black">{item.icon}</span>
               <span className="text-sm text-dark font-medium">{item.text}</span>
-              {item.sub && <span className="text-[0.65rem] text-mid -mt-1">{item.sub}</span>}
+              {item.sub && <span className="text-[0.65rem] text-dark font-medium -mt-1">{item.sub}</span>}
             </div>
           ))}
         </div>
