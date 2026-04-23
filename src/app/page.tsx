@@ -148,7 +148,7 @@ export default function Home() {
         {/* Features Bar */}
         <div className="grid grid-cols-2 md:grid-cols-4 border-t border-b border-light">
           {[
-            { icon: homeIcon, text: "5店舗展開" },
+            { icon: homeIcon, text: "4店舗展開" },
             { icon: clockIcon, text: "24時間営業" },
             { icon: rfidIcon, text: "RFID完備" },
             { icon: videoIcon, text: "配信OK" },
