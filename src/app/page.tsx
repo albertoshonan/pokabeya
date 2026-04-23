@@ -148,10 +148,10 @@ export default function Home() {
         {/* Features Bar */}
         <div className="grid grid-cols-2 md:grid-cols-4 border-t border-b border-light">
           {[
-            { icon: homeIcon, text: "4店舗展開" },
-            { icon: clockIcon, text: "24時間営業" },
-            { icon: rfidIcon, text: "RFID完備" },
-            { icon: videoIcon, text: "配信OK" },
+            { icon: homeIcon, text: "駅チカ", sub: "都内4店舗展開" },
+            { icon: clockIcon, text: "24時間営業", sub: "※一部特例あり" },
+            { icon: rfidIcon, text: "RFID自動シャフラー完備", sub: null },
+            { icon: videoIcon, text: "YouTube配信/撮影OK", sub: null },
           ].map((item, i, arr) => (
             <div
               key={item.text}
@@ -163,6 +163,7 @@ export default function Home() {
             >
               <span className="w-6 h-6 text-black">{item.icon}</span>
               <span className="text-sm text-dark font-medium">{item.text}</span>
+              {item.sub && <span className="text-[0.65rem] text-mid -mt-1">{item.sub}</span>}
             </div>
           ))}
         </div>
