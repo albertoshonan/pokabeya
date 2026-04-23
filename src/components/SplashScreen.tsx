@@ -22,12 +22,12 @@ export default function SplashScreen() {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] bg-black flex items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+      className={`fixed inset-0 z-[9999] bg-white flex items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${
         phase === "slide-out" ? "-translate-y-full" : "translate-y-0"
       }`}
     >
       <Image
-        src="/images/logo-white.png"
+        src="/images/logo-dark.png"
         alt="Pokabeya"
         width={200}
         height={200}
