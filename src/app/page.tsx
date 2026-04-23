@@ -3,6 +3,7 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import PhoneButton from "@/components/PhoneButton";
 import { rooms, formatPrice } from "@/data/rooms";
 
 const pricingPlans = [
@@ -114,17 +115,22 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="bg-black text-white text-sm px-7 py-3.5 rounded-full hover:opacity-80 transition-opacity"
               >
-                今すぐ予約する
+                <span>ネット予約</span>
+                <span className="text-xs text-white/60">(クレジットOnly)</span>
               </Link>
               <Link
-                href="https://page.line.me/515smhfk?oat_content=url&openQrModal=true" target="_blank" rel="noopener noreferrer"
+                href="https://page.line.me/515smhfk?oat_content=url&openQrModal=true"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="border border-light text-dark text-sm px-6 py-3.5 rounded-full hover:border-black transition-colors flex items-center gap-2"
               >
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                 </svg>
-                LINEで相談
+                <span>LINE予約</span>
+                <span className="text-xs text-mid">(PayPay Only)</span>
               </Link>
+              <PhoneButton />
             </div>
           </div>
           {/* Right: Image */}
