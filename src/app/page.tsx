@@ -179,7 +179,7 @@ export default function Home() {
             </h2>
             <p className="text-sm text-mid mt-1">スペース紹介</p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {rooms.map((room) => (
               <Link
                 key={room.slug}
