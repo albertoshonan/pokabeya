@@ -41,7 +41,7 @@ const steps = [
   {
     step: "STEP 3",
     title: "プレイ",
-    desc: "RFIDテーブルでポーカーを楽しむ",
+    desc: "充実した環境で仲間とポーカーを楽しむ",
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="6" width="20" height="12" rx="2" />
@@ -52,7 +52,7 @@ const steps = [
   {
     step: "STEP 4",
     title: "退室",
-    desc: "時間になったらそのまま退室",
+    desc: "時間までに退出",
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
@@ -115,8 +115,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="bg-black text-white text-sm px-7 py-3.5 rounded-full hover:opacity-80 transition-opacity"
               >
-                <span>ネット予約</span>
-                <span className="text-xs text-white/60">(クレジットOnly)</span>
+                <span>クレカonly</span>
               </Link>
               <Link
                 href="https://page.line.me/515smhfk?oat_content=url&openQrModal=true"
@@ -146,23 +145,25 @@ export default function Home() {
           </div>
         </div>
         {/* Features Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 border-t border-b border-light">
+        <div className="grid grid-cols-2 md:grid-cols-3 border-t border-b border-light">
           {[
             { icon: homeIcon, text: "駅チカ", sub: "都内4店舗展開" },
             { icon: clockIcon, text: "24時間営業", sub: "※一部特例あり" },
             { icon: rfidIcon, text: "RFID/自動シャフラー完備", sub: null },
             { icon: videoIcon, text: "YouTube配信/撮影OK", sub: null },
-          ].map((item, i, arr) => (
+            { icon: gemIcon, text: <>ラグジュアリーな<br className="md:hidden" />ポーカーテーブル</>, sub: null },
+            { icon: shieldIcon, text: "完全無人プライベート空間", sub: null },
+          ].map((item, i) => (
             <div
-              key={item.text}
+              key={i}
               className={`flex flex-col items-center gap-2 py-6 border-light ${
-                i < arr.length - 1 ? "md:border-r" : ""
-              } ${i < 2 ? "max-md:border-b" : ""} ${
                 i % 2 === 0 ? "max-md:border-r" : ""
-              }`}
+              } ${i < 4 ? "max-md:border-b" : ""} ${
+                i % 3 !== 2 ? "md:border-r" : ""
+              } ${i < 3 ? "md:border-b" : ""}`}
             >
               <span className="w-6 h-6 text-black">{item.icon}</span>
-              <span className="text-sm text-dark font-medium">{item.text}</span>
+              <span className="text-sm text-dark font-medium text-center">{item.text}</span>
               {item.sub && <span className="text-[0.65rem] text-dark font-medium -mt-1">{item.sub}</span>}
             </div>
           ))}
@@ -323,13 +324,13 @@ export default function Home() {
           </Link>
         </div>
         <a
-          href="tel:07090248529"
+          href="tel:08092420743"
           className="inline-flex items-center gap-2 border border-light text-dark text-sm px-6 py-3 rounded-full hover:border-black transition-colors"
         >
           <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
           </svg>
-          070-9024-8529
+          080-9242-0743
         </a>
       </section>
       </ScrollReveal>
@@ -369,5 +370,17 @@ const videoIcon = (
   <svg viewBox="0 0 24 24" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <polygon points="23 7 16 12 23 17" />
     <rect x="1" y="5" width="15" height="14" rx="2" />
+  </svg>
+);
+const gemIcon = (
+  <svg viewBox="0 0 24 24" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M6 3h12l4 6-10 12L2 9z" />
+    <path d="M2 9h20" />
+    <path d="M12 3 8 9l4 12 4-12z" />
+  </svg>
+);
+const shieldIcon = (
+  <svg viewBox="0 0 24 24" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
   </svg>
 );

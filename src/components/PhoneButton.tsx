@@ -46,7 +46,7 @@ export default function PhoneButton({ size = "default" }: { size?: "default" | "
             LINEで電話
           </a>
           <a
-            href="tel:07090248529"
+            href="tel:08092420743"
             className="flex items-center gap-2.5 px-4 py-3 text-sm text-dark hover:bg-off transition-colors border-t border-light"
           >
             <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
