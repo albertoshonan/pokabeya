@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import PhoneButton from "@/components/PhoneButton";
 
 export default function Nav({ showBack = false }: { showBack?: boolean }) {
   return (
@@ -55,7 +54,6 @@ export default function Nav({ showBack = false }: { showBack?: boolean }) {
                 <span>LINE予約</span>
                 <span className="text-[0.55rem] text-white/60 hidden sm:inline">(PayPay Only)</span>
               </Link>
-              <PhoneButton size="small" />
             </>
           )}
         </div>
