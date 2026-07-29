@@ -3,7 +3,6 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
-import PhoneButton from "@/components/PhoneButton";
 import { rooms, formatPrice } from "@/data/rooms";
 
 const pricingPlans = [
@@ -113,9 +112,10 @@ export default function Home() {
                 href="https://reserva.be/pokerbear"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-black text-white text-sm px-7 py-3.5 rounded-full hover:opacity-80 transition-opacity"
+                className="bg-black text-white text-sm px-6 py-3.5 rounded-full hover:opacity-80 transition-opacity flex items-center gap-2"
               >
-                <span>クレカonly</span>
+                <span>ネット予約</span>
+                <span className="text-xs text-white/60">(クレカonly)</span>
               </Link>
               <Link
                 href="https://page.line.me/515smhfk?oat_content=url&openQrModal=true"
@@ -129,7 +129,6 @@ export default function Home() {
                 <span>LINE予約</span>
                 <span className="text-xs text-mid">(PayPay Only)</span>
               </Link>
-              <PhoneButton />
             </div>
           </div>
           {/* Right: Image */}
@@ -304,7 +303,7 @@ export default function Home() {
           Book Now
         </h2>
         <p className="text-sm text-gray mb-10">完全無人 RFID ポーカールーム</p>
-        <div className="flex gap-3 flex-wrap justify-center mb-8">
+        <div className="flex gap-3 flex-wrap justify-center">
           <Link
             href="https://reserva.be/pokerbear"
             target="_blank"
@@ -323,15 +322,6 @@ export default function Home() {
             LINEで相談
           </Link>
         </div>
-        <a
-          href="tel:08092420743"
-          className="inline-flex items-center gap-2 border border-light text-dark text-sm px-6 py-3 rounded-full hover:border-black transition-colors"
-        >
-          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-          </svg>
-          080-9242-0743
-        </a>
       </section>
       </ScrollReveal>
 
