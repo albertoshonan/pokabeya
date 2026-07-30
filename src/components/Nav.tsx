@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-
-const LINE_URL = "https://page.line.me/515smhfk?oat_content=url&openQrModal=true";
+import { LINE_URL } from "@/data/links";
 
 export default function Nav({ showBack = false }: { showBack?: boolean }) {
   return (
