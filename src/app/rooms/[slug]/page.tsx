@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { rooms, getRoomBySlug, getOtherRooms, formatPrice } from "@/data/rooms";
+import { LINE_URL } from "@/data/links";
 
 export function generateStaticParams() {
   return rooms.map((room) => ({ slug: room.slug }));
@@ -220,7 +221,7 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
                 今すぐ予約する
               </Link>
               <Link
-                href="https://page.line.me/515smhfk?oat_content=url&openQrModal=true" target="_blank" rel="noopener noreferrer"
+                href={LINE_URL} target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full text-center border border-light text-dark py-3 rounded-full text-sm hover:border-black transition-colors"
               >
                 <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

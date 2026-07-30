@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { rooms, formatPrice } from "@/data/rooms";
+import { LINE_URL } from "@/data/links";
 
 const pricingPlans = [
   { label: "早朝", price: 2200, time: "06:00 〜 08:59", featured: false },
@@ -118,7 +119,7 @@ export default function Home() {
                 <span className="text-xs text-white/60">(クレカonly)</span>
               </Link>
               <Link
-                href="https://page.line.me/515smhfk?oat_content=url&openQrModal=true"
+                href={LINE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-light text-dark text-sm px-6 py-3.5 rounded-full hover:border-black transition-colors flex items-center gap-2"
@@ -313,7 +314,7 @@ export default function Home() {
             今すぐ予約する
           </Link>
           <Link
-            href="https://page.line.me/515smhfk?oat_content=url&openQrModal=true" target="_blank" rel="noopener noreferrer"
+            href={LINE_URL} target="_blank" rel="noopener noreferrer"
             className="border border-light text-dark text-sm px-6 py-3.5 rounded-full hover:border-black transition-colors flex items-center gap-2"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -321,6 +322,21 @@ export default function Home() {
             </svg>
             LINEで相談
           </Link>
+        </div>
+        {/* 電話番号を廃止したため、電話希望の導線として公式LINEへ誘導する */}
+        <div className="mt-12 flex flex-col items-center gap-4">
+          <Link
+            href={LINE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#06C755] text-white text-sm font-medium px-8 py-3.5 rounded-full hover:brightness-95 transition-[filter] flex items-center gap-2"
+          >
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            LINE ともだち追加
+          </Link>
+          <p className="text-xs text-gray">お電話ご希望の方は公式LINEへ📞ください！</p>
         </div>
       </section>
       </ScrollReveal>
