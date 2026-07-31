@@ -6,11 +6,15 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { rooms, formatPrice } from "@/data/rooms";
 import { LINE_URL } from "@/data/links";
 
+// 料金は部屋ごとに異なるため、トップでは最安値から「〜」で示す
 const pricingPlans = [
-  { label: "早朝", price: 2200, time: "06:00 〜 08:59", featured: false },
-  { label: "日中", price: 2750, time: "09:00 〜 16:59", featured: false },
-  { label: "夜間", price: 3300, time: "17:00 〜 05:59", featured: true },
+  { label: "平日", price: Math.min(...rooms.map((r) => r.pricing.weekday)), featured: false },
+  { label: "金土日祝日", price: Math.min(...rooms.map((r) => r.pricing.weekend)), featured: true },
 ];
+
+const minPack6h = Math.min(
+  ...rooms.flatMap((r) => r.packs.filter((p) => p.hours === 6).map((p) => p.weekday))
+);
 
 const steps = [
   {
@@ -216,7 +220,7 @@ export default function Home() {
             </h2>
             <p className="text-sm text-mid mt-1">料金プラン</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             {pricingPlans.map((plan) => (
               <div
                 key={plan.label}
@@ -231,15 +235,16 @@ export default function Home() {
                 </p>
                 <p className={`text-3xl font-bold leading-tight ${plan.featured ? "text-white" : "text-black"}`}>
                   {formatPrice(plan.price)}
+                  <span className="text-xl">〜</span>
                 </p>
                 <p className={`text-xs mb-1.5 ${plan.featured ? "text-[#ccc]" : "text-mid"}`}>/ 1h</p>
-                <p className={`text-xs ${plan.featured ? "text-[#888]" : "text-gray"}`}>{plan.time}</p>
+                <p className={`text-xs ${plan.featured ? "text-[#888]" : "text-gray"}`}>部屋により異なります</p>
               </div>
             ))}
           </div>
           <div className="bg-off rounded-xl p-4 text-xs text-gray leading-relaxed">
             ※ 料金は1部屋あたりの料金です（人数割りではありません）<br />
-            ※ パック料金もあります（6h ¥13,200〜）<br />
+            ※ パック料金・オプション料金は各部屋のページをご覧ください（6h {formatPrice(minPack6h)}〜）<br />
             ※ 延長は予約システムまたはLINEから対応可能です
           </div>
         </section>

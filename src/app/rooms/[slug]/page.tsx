@@ -4,7 +4,7 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
-import { rooms, getRoomBySlug, getOtherRooms, formatPrice } from "@/data/rooms";
+import { rooms, getRoomBySlug, getOtherRooms, formatPrice, options } from "@/data/rooms";
 import { LINE_URL } from "@/data/links";
 
 export function generateStaticParams() {
@@ -154,35 +154,24 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
               <table className="w-full">
                 <thead>
                   <tr className="border-b-2 border-light">
-                    <th className="text-left text-xs text-mid tracking-wider font-semibold py-2.5 px-4">時間帯</th>
+                    <th className="text-left text-xs text-mid tracking-wider font-semibold py-2.5 px-4">区分</th>
                     <th className="text-left text-xs text-mid tracking-wider font-semibold py-2.5 px-4">料金</th>
-                    <th className="text-left text-xs text-mid tracking-wider font-semibold py-2.5 px-4">時間</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b border-light">
-                    <td className="py-3.5 px-4 text-sm text-dark">早朝</td>
+                    <td className="py-3.5 px-4 text-sm text-dark">平日</td>
                     <td className="py-3.5 px-4">
-                      <span className="text-xl font-bold text-black">{formatPrice(room.pricing.early)}</span>
+                      <span className="text-xl font-bold text-black">{formatPrice(room.pricing.weekday)}</span>
                       <span className="text-xs text-mid ml-1">/ 1h</span>
                     </td>
-                    <td className="py-3.5 px-4 text-sm text-dark">06:00 〜 08:59</td>
-                  </tr>
-                  <tr className="border-b border-light">
-                    <td className="py-3.5 px-4 text-sm text-dark">日中</td>
-                    <td className="py-3.5 px-4">
-                      <span className="text-xl font-bold text-black">{formatPrice(room.pricing.day)}</span>
-                      <span className="text-xs text-mid ml-1">/ 1h</span>
-                    </td>
-                    <td className="py-3.5 px-4 text-sm text-dark">09:00 〜 16:59</td>
                   </tr>
                   <tr className="bg-black rounded-lg">
-                    <td className="py-3.5 px-4 text-sm text-white rounded-l-lg">夜間</td>
-                    <td className="py-3.5 px-4">
-                      <span className="text-xl font-bold text-white">{formatPrice(room.pricing.night)}</span>
+                    <td className="py-3.5 px-4 text-sm text-white rounded-l-lg">金土日祝日</td>
+                    <td className="py-3.5 px-4 rounded-r-lg">
+                      <span className="text-xl font-bold text-white">{formatPrice(room.pricing.weekend)}</span>
                       <span className="text-xs text-[#999] ml-1">/ 1h</span>
                     </td>
-                    <td className="py-3.5 px-4 text-sm text-white rounded-r-lg">17:00 〜 05:59</td>
                   </tr>
                 </tbody>
               </table>
@@ -190,12 +179,46 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
               <h3 className="text-sm font-semibold mt-7 mb-1">パック料金</h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">
                 {room.packs.map((pack) => (
-                  <div key={pack.hours} className="border border-light rounded-xl p-3.5 text-center">
-                    <p className="text-xs text-mid mb-0.5">{pack.hours}時間</p>
-                    <p className="text-base font-bold text-black">{formatPrice(pack.price)}</p>
-                    <p className="text-[0.62rem] text-mid">
-                      {formatPrice(Math.round(pack.price / pack.hours))}/h
-                    </p>
+                  <div key={pack.hours} className="border border-light rounded-xl p-3.5">
+                    <p className="text-xs text-mid mb-2 text-center">{pack.hours}時間パック</p>
+                    <div className="flex items-baseline justify-between">
+                      <span className="text-[0.62rem] text-mid">平日</span>
+                      <span className="text-sm font-bold text-black">{formatPrice(pack.weekday)}</span>
+                    </div>
+                    <div className="flex items-baseline justify-between mt-1">
+                      <span className="text-[0.62rem] text-mid">金土日祝</span>
+                      <span className="text-sm font-bold text-black">{formatPrice(pack.weekend)}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <h3 className="text-sm font-semibold mt-7 mb-1">オプション料金</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-4">
+                {options.map((opt) => (
+                  <div key={opt.name} className="border border-light rounded-xl p-3.5">
+                    <p className="text-sm font-semibold text-black">{opt.name}</p>
+                    {opt.desc && (
+                      <p className="text-[0.68rem] text-mid leading-relaxed mt-1">{opt.desc}</p>
+                    )}
+                    {opt.price !== undefined && (
+                      <p className="text-base font-bold text-black mt-2">
+                        {formatPrice(opt.price)}
+                        {opt.priceNote && (
+                          <span className="text-[0.62rem] text-mid font-normal ml-1">{opt.priceNote}</span>
+                        )}
+                      </p>
+                    )}
+                    {opt.tiers && (
+                      <div className="mt-2 space-y-1">
+                        {opt.tiers.map((tier) => (
+                          <div key={tier.label} className="flex items-baseline justify-between">
+                            <span className="text-[0.68rem] text-mid">{tier.label}</span>
+                            <span className="text-sm font-bold text-black">{formatPrice(tier.price)}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
