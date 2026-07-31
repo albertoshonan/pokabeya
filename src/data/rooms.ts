@@ -16,14 +16,66 @@ export type Room = {
   access: string;
   accessLines: string[];
   equipment: string[];
+  /** 1時間あたりの基本料金。平日と金土日祝日の2区分 */
   pricing: {
-    early: number;
-    day: number;
-    night: number;
+    weekday: number;
+    weekend: number;
   };
-  packs: { hours: number; price: number }[];
+  packs: { hours: number; weekday: number; weekend: number }[];
   mapEmbedUrl: string;
 };
+
+/** 全部屋共通のオプション料金 */
+export type OptionPlan = {
+  name: string;
+  desc?: string;
+  price?: number;
+  priceNote?: string;
+  tiers?: { label: string; price: number }[];
+};
+
+export const options: OptionPlan[] = [
+  {
+    name: "ゴミ処理お任せ",
+    desc: "退室時のゴミ処理・ゴミ捨てをお任せできるオプション",
+    price: 2900,
+  },
+  {
+    name: "お片付けお任せ",
+    desc: "退室時の片付けをお任せできるオプション",
+    price: 4300,
+  },
+  {
+    name: "全部お任せ",
+    desc: "ゴミ処理・お片付けを全てお任せできるオプション。退室時はそのまま帰宅できます",
+    price: 4800,
+  },
+  {
+    name: "テーブル追加",
+    desc: "2卓目の追加",
+    price: 4000,
+  },
+  {
+    name: "RFIDオートモード",
+    tiers: [
+      { label: "5時間以下", price: 5500 },
+      { label: "6時間パック", price: 9900 },
+      { label: "9時間パック", price: 13200 },
+      { label: "12時間パック", price: 15800 },
+      { label: "24時間パック", price: 29400 },
+    ],
+  },
+  {
+    name: "遠隔打込みモード",
+    tiers: [
+      { label: "5時間以下", price: 20000 },
+      { label: "6時間以上", price: 28000 },
+      { label: "9時間以上", price: 40000 },
+      { label: "12時間以上", price: 69000 },
+      { label: "24時間以上", price: 96000 },
+    ],
+  },
+];
 
 export const rooms: Room[] = [
   {
@@ -54,12 +106,12 @@ export const rooms: Room[] = [
       "冷蔵庫・空気清浄機完備",
       "飲食持ち込みOK",
     ],
-    pricing: { early: 2200, day: 2750, night: 3300 },
+    pricing: { weekday: 3680, weekend: 4375 },
     packs: [
-      { hours: 6, price: 13200 },
-      { hours: 9, price: 18150 },
-      { hours: 12, price: 22000 },
-      { hours: 24, price: 38500 },
+      { hours: 6, weekday: 20976, weekend: 24937 },
+      { hours: 9, weekday: 29808, weekend: 35437 },
+      { hours: 12, weekday: 39744, weekend: 47250 },
+      { hours: 24, weekday: 75072, weekend: 82950 },
     ],
     mapEmbedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.5!2d139.6917!3d35.6896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cd580b18901%3A0x1!2z5p2x5Lqs6YO95paw5a6_5Yy66KW_5paw5a6_MS0xNi0xMQ!5e0!3m2!1sja!2sjp!4v1",
@@ -91,12 +143,12 @@ export const rooms: Room[] = [
       "冷蔵庫・空気清浄機完備",
       "飲食持ち込みOK",
     ],
-    pricing: { early: 2200, day: 2750, night: 3300 },
+    pricing: { weekday: 3680, weekend: 4375 },
     packs: [
-      { hours: 6, price: 13200 },
-      { hours: 9, price: 18150 },
-      { hours: 12, price: 22000 },
-      { hours: 24, price: 38500 },
+      { hours: 6, weekday: 20976, weekend: 24937 },
+      { hours: 9, weekday: 29808, weekend: 35437 },
+      { hours: 12, weekday: 39744, weekend: 47250 },
+      { hours: 24, weekday: 75072, weekend: 82950 },
     ],
     mapEmbedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7!2d139.7030!3d35.6580!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b57a5e5b5e7%3A0x1!2z5p2x5Lqs6YO95riL6LC35Yy65riL6LC3MuS4geebri!5e0!3m2!1sja!2sjp!4v1",
@@ -129,12 +181,12 @@ export const rooms: Room[] = [
       "冷蔵庫・空気清浄機完備",
       "飲食持ち込みOK",
     ],
-    pricing: { early: 2200, day: 2750, night: 3300 },
+    pricing: { weekday: 3480, weekend: 3875 },
     packs: [
-      { hours: 6, price: 13200 },
-      { hours: 9, price: 18150 },
-      { hours: 12, price: 22000 },
-      { hours: 24, price: 38500 },
+      { hours: 6, weekday: 19836, weekend: 22087 },
+      { hours: 9, weekday: 28088, weekend: 31387 },
+      { hours: 12, weekday: 37584, weekend: 41850 },
+      { hours: 24, weekday: 70992, weekend: 79050 },
     ],
     mapEmbedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.5!2d139.7433!3d35.6486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bb3a6f6e1a1%3A0x1!2z5p2x5Lqs6YO95riv5Yy65LiJ55SwMi0xNC00!5e0!3m2!1sja!2sjp!4v1",
@@ -166,12 +218,12 @@ export const rooms: Room[] = [
       "テーブルトップ（会議利用可）",
       "飲食持ち込みOK",
     ],
-    pricing: { early: 2200, day: 2750, night: 3300 },
+    pricing: { weekday: 3480, weekend: 3875 },
     packs: [
-      { hours: 6, price: 13200 },
-      { hours: 9, price: 18150 },
-      { hours: 12, price: 22000 },
-      { hours: 24, price: 38500 },
+      { hours: 6, weekday: 19836, weekend: 22087 },
+      { hours: 9, weekday: 28088, weekend: 31387 },
+      { hours: 12, weekday: 37584, weekend: 41850 },
+      { hours: 24, weekday: 70992, weekend: 79050 },
     ],
     mapEmbedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.4!2d139.7705!3d35.7005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ea73e2a9a1f%3A0x1!2z5Y2D5Luj55Sw5Yy65aSW56We55SwMy02LTU!5e0!3m2!1sja!2sjp!4v1",
