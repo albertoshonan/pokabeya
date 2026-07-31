@@ -27,8 +27,12 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
   if (!room) notFound();
 
   const others = getOtherRooms(slug);
-  // 1卓のみの部屋ではテーブル追加を提供できないため除外する
-  const roomOptions = options.filter((opt) => !opt.multiTableOnly || (room.tables ?? 1) >= 2);
+  // 1卓のみの部屋ではテーブル追加を提供できない。加えて部屋ごとの除外指定も反映する
+  const roomOptions = options.filter(
+    (opt) =>
+      (!opt.multiTableOnly || (room.tables ?? 1) >= 2) &&
+      !room.excludedOptions?.includes(opt.name)
+  );
 
   return (
     <>
@@ -99,7 +103,13 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
         </div>
         {/* モバイル: メイン1枚 */}
         <div className="sm:hidden relative h-[250px] rounded-2xl overflow-hidden">
-          <Image src={room.images[0]} alt={room.nameJa} fill sizes="100vw" className="object-cover" />
+          {room.images[0] ? (
+            <Image src={room.images[0]} alt={room.nameJa} fill sizes="100vw" className="object-cover" />
+          ) : (
+            <div className="w-full h-full bg-off flex items-center justify-center text-xs text-mid">
+              写真準備中
+            </div>
+          )}
         </div>
       </div>
       </ScrollReveal>
@@ -323,13 +333,19 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
               className="group bg-off rounded-2xl overflow-hidden hover:-translate-y-0.5 hover:shadow-lg transition-all"
             >
               <div className="relative h-28 overflow-hidden">
-                <Image
-                  src={other.images[0]}
-                  alt={other.nameJa}
-                  fill
-                  sizes="(max-width: 640px) 50vw, 25vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                {other.images[0] ? (
+                  <Image
+                    src={other.images[0]}
+                    alt={other.nameJa}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 25vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-light/60 flex items-center justify-center text-[0.6rem] text-mid">
+                    写真準備中
+                  </div>
+                )}
               </div>
               <div className="p-4 text-center">
                 <h4 className="text-sm font-semibold mb-0.5">{other.nameJa}</h4>
