@@ -205,13 +205,19 @@ export default function Home() {
                 className="group bg-off rounded-2xl overflow-hidden text-center hover:-translate-y-0.5 hover:shadow-lg transition-all"
               >
                 <div className="relative h-32 overflow-hidden">
-                  <Image
-                    src={room.images[0]}
-                    alt={room.nameJa}
-                    fill
-                    sizes="(max-width: 640px) 50vw, 20vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  {room.images[0] ? (
+                    <Image
+                      src={room.images[0]}
+                      alt={room.nameJa}
+                      fill
+                      sizes="(max-width: 640px) 50vw, 20vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-light/60 flex items-center justify-center text-[0.65rem] text-mid">
+                      写真準備中
+                    </div>
+                  )}
                 </div>
                 <div className="p-4">
                   <h4 className="text-sm font-semibold text-dark mb-0.5">{room.nameJa}</h4>

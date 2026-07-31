@@ -22,6 +22,8 @@ export type Room = {
     weekend: number;
   };
   packs: { hours: number; weekday: number; weekend: number }[];
+  /** この部屋では提供しないオプション名。OptionPlan.name と一致させる */
+  excludedOptions?: string[];
   mapEmbedUrl: string;
 };
 
@@ -155,6 +157,45 @@ export const rooms: Room[] = [
     ],
     mapEmbedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7!2d139.7030!3d35.6580!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b57a5e5b5e7%3A0x1!2z5p2x5Lqs6YO95riL6LC35Yy65riL6LC3MuS4geebri!5e0!3m2!1sja!2sjp!4v1",
+  },
+  {
+    slug: "bukurobeya",
+    name: "Bukurobeya",
+    nameJa: "ブクロベヤ",
+    area: "池袋",
+    images: [],
+    tagline: "完全無人 RFID ポーカールーム — 池袋駅すぐ",
+    description:
+      "ブクロベヤは池袋駅からすぐの立地にある完全無人のプライベートポーカールームです。RFIDテーブル・オートシャフラー・チップ・カードなど全て完備。手ぶらでお越しいただけます。\n\nスタッフは遠隔でPCやLINEにてサポート。ファイヤースティック・スピーカーも備え、ポーカーをしながらのエンターテイメントも充実。POKER GOの視聴も可能です。部屋内での飲食自由、加熱式タバコOK、持ち込みも自由です。",
+    maxGuests: 10,
+    tables: 2,
+    address: {
+      zip: "〒170-0014",
+      lines: ["東京都豊島区池袋1-2-6", "ベルメゾン池袋 10階 1003号室"],
+    },
+    access: "JR・東京メトロ・西武・東武 池袋駅",
+    accessLines: ["JR池袋駅 西口", "東京メトロ・西武池袋線・東武東上線 池袋駅"],
+    equipment: [
+      "RFID搭載ポーカーテーブル",
+      "オートシャフラー",
+      "オリジナルチップ・カード各種",
+      "大型スマートテレビ・Fire Stick",
+      "配信用ウェブカメラ",
+      "スピーカー・充電器完備",
+      "電子レンジ・ケトル",
+      "冷蔵庫・空気清浄機完備",
+      "飲食持ち込みOK",
+    ],
+    pricing: { weekday: 3680, weekend: 4375 },
+    packs: [
+      { hours: 6, weekday: 20976, weekend: 24937 },
+      { hours: 9, weekday: 29808, weekend: 35437 },
+      { hours: 12, weekday: 39744, weekend: 47250 },
+      { hours: 24, weekday: 75072, weekend: 82950 },
+    ],
+    excludedOptions: ["ゴミ処理お任せ", "お片付けお任せ", "全部お任せ"],
+    mapEmbedUrl:
+      "https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E6%B1%A0%E8%A2%8B1-2-6&hl=ja&z=17&output=embed",
   },
   {
     slug: "mitabeya",
