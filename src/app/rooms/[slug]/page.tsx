@@ -27,6 +27,8 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
   if (!room) notFound();
 
   const others = getOtherRooms(slug);
+  // 1卓のみの部屋ではテーブル追加を提供できないため除外する
+  const roomOptions = options.filter((opt) => !opt.multiTableOnly || (room.tables ?? 1) >= 2);
 
   return (
     <>
@@ -195,7 +197,7 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
 
               <h3 className="text-sm font-semibold mt-7 mb-1">オプション料金</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-4">
-                {options.map((opt) => (
+                {roomOptions.map((opt) => (
                   <div key={opt.name} className="border border-light rounded-xl p-3.5">
                     <p className="text-sm font-semibold text-black">{opt.name}</p>
                     {opt.desc && (

@@ -32,6 +32,8 @@ export type OptionPlan = {
   price?: number;
   priceNote?: string;
   tiers?: { label: string; price: number }[];
+  /** 2卓以上ある部屋でのみ提供するオプション */
+  multiTableOnly?: boolean;
 };
 
 export const options: OptionPlan[] = [
@@ -54,6 +56,7 @@ export const options: OptionPlan[] = [
     name: "テーブル追加",
     desc: "2卓目の追加",
     price: 4000,
+    multiTableOnly: true,
   },
   {
     name: "RFIDオートモード",
