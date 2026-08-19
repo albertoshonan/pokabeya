@@ -301,16 +301,29 @@ export default function Home() {
             <p className="text-sm text-mid mt-1">よくある質問</p>
           </div>
           <div className="max-w-2xl">
+            {/* details/summary なので開閉にJSが要らず、Server Componentのまま動く */}
             {faqs.map((faq) => (
-              <div key={faq.q} className="border-b border-light py-5">
-                <div className="flex items-start gap-2.5">
+              <details key={faq.q} className="group border-b border-light">
+                <summary className="flex items-start gap-2.5 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                   <span className="font-[family-name:var(--font-playfair)] italic font-bold text-base text-black shrink-0">
                     Q
                   </span>
-                  <p className="text-[0.95rem] font-medium text-dark">{faq.q}</p>
-                </div>
-                <p className="text-sm text-gray mt-2.5 pl-7 leading-relaxed">{faq.a}</p>
-              </div>
+                  <p className="text-[0.95rem] font-medium text-dark flex-1">{faq.q}</p>
+                  <svg
+                    className="w-4 h-4 mt-1 shrink-0 text-mid transition-transform duration-200 group-open:rotate-180"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </summary>
+                <p className="text-sm text-gray pb-5 pl-7 leading-relaxed">{faq.a}</p>
+              </details>
             ))}
           </div>
         </section>
