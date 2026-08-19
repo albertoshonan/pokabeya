@@ -67,7 +67,12 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
           {[
             { icon: clockIcon, text: room.hoursLabel ?? "24時間営業" },
             { icon: rfidIcon, text: "RFID完備" },
-            { icon: usersIcon, text: `最大${room.maxGuests}名` },
+            {
+              icon: usersIcon,
+              text: room.maxGuestsUpper
+                ? `最大${room.maxGuests}名〜${room.maxGuestsUpper}名`
+                : `最大${room.maxGuests}名`,
+            },
             ...(room.tables ? [{ icon: tableIcon, text: `${room.tables}テーブル常備` }] : []),
             { icon: videoIcon, text: "配信OK" },
           ].map((item) => (
