@@ -3,6 +3,7 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import BookingButtons from "@/components/BookingButtons";
 import { rooms, formatPrice } from "@/data/rooms";
 import { LINE_URL } from "@/data/links";
 
@@ -338,26 +339,12 @@ export default function Home() {
         </h2>
         <p className="text-sm text-gray mb-10">完全無人 RFID ポーカールーム</p>
         <div className="flex gap-3 flex-wrap justify-center">
-          <Link
-            href="https://reserva.be/pokerbear"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-black text-white text-sm px-8 py-3.5 rounded-full hover:opacity-80 transition-opacity"
-          >
-            今すぐ予約する
-          </Link>
-          <Link
-            href={LINE_URL} target="_blank" rel="noopener noreferrer"
-            className="border border-light text-dark text-sm px-6 py-3.5 rounded-full hover:border-black transition-colors flex items-center gap-2"
-          >
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-            </svg>
-            LINEで相談
-          </Link>
+          {/* 3つ目のLINE予約ボタンは、下の電話案内と役割が重なるため省く */}
+          <BookingButtons variant="wide" omitPhoneButton />
         </div>
         {/* 電話番号を廃止したため、電話希望の導線として公式LINEへ誘導する */}
         <div className="mt-12 flex flex-col items-center gap-4">
+          <p className="text-xs text-gray">お電話ご希望の方は公式LINEへ📞ください！</p>
           <Link
             href={LINE_URL}
             target="_blank"
@@ -369,7 +356,6 @@ export default function Home() {
             </svg>
             LINE ともだち追加
           </Link>
-          <p className="text-xs text-gray">お電話ご希望の方は公式LINEへ📞ください！</p>
         </div>
       </section>
       </ScrollReveal>
