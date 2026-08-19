@@ -65,6 +65,7 @@ export default function PolicyPage() {
               </span>
             </h3>
             <ul className="text-gray space-y-2 list-none">
+              <li>現金でのプレイや賭博行為</li>
               <li>部屋内防犯カメラの接続解除</li>
               <li>
                 店内での紙たばこの喫煙（加熱式たばこ、電子タバコの喫煙は問題ございません）
