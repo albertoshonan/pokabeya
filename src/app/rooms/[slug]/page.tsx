@@ -4,8 +4,8 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import BookingButtons from "@/components/BookingButtons";
 import { rooms, getRoomBySlug, getOtherRooms, formatPrice, options } from "@/data/rooms";
-import { LINE_URL } from "@/data/links";
 
 export function generateStaticParams() {
   return rooms.map((room) => ({ slug: room.slug }));
@@ -252,23 +252,7 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
           <div>
             {/* CTA Card */}
             <div className="border border-light rounded-2xl p-7 mb-5">
-              <Link
-                href="https://reserva.be/pokerbear"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center bg-black text-white py-3.5 rounded-full text-sm font-medium mb-2.5 hover:opacity-80 transition-opacity"
-              >
-                今すぐ予約する
-              </Link>
-              <Link
-                href={LINE_URL} target="_blank" rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full text-center border border-light text-dark py-3 rounded-full text-sm hover:border-black transition-colors"
-              >
-                <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                </svg>
-                LINEで相談
-              </Link>
+              <BookingButtons variant="stacked" />
             </div>
 
             {/* Access Info */}
