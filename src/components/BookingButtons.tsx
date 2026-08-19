@@ -20,36 +20,47 @@ const phoneIcon = (
 const buttons = [
   { href: LINE_URL, label: "LINE", icon: chatIcon, suffix: "予約", note: "(PayPay Only)" },
   { href: "https://reserva.be/pokerbear", label: "ネット予約", icon: null, suffix: null, note: "(クレジットOnly)" },
-  { href: LINE_URL, label: "LINE", icon: phoneIcon, suffix: "予約", note: null },
+  { href: LINE_URL, label: "LINE", icon: phoneIcon, suffix: "予約", note: null, isPhone: true },
 ];
 
-/**
- * nav: ヘッダー右上に並べる小さめのピル
- * stacked: サイドバーCTAで縦に積む横幅いっぱいのボタン
- */
-export default function BookingButtons({ variant }: { variant: "nav" | "stacked" }) {
-  const isNav = variant === "nav";
+const shapes = {
+  /** ヘッダー右上に並べる小さめのピル */
+  nav: "text-[0.62rem] sm:text-[0.72rem] px-3 sm:px-4 py-2",
+  /** サイドバーCTAで縦に積む横幅いっぱいのボタン */
+  stacked: "w-full justify-center text-sm px-4 py-3.5 mb-2.5 last:mb-0",
+  /** ページ下部CTAで中央に横並びにするボタン */
+  wide: "text-sm px-6 sm:px-8 py-3.5",
+};
+
+export default function BookingButtons({
+  variant,
+  /** 電話の代わりに置いている3つ目のLINE予約ボタンを省く。別に電話導線がある場所で使う */
+  omitPhoneButton = false,
+}: {
+  variant: keyof typeof shapes;
+  omitPhoneButton?: boolean;
+}) {
   const base =
     "bg-black text-white rounded-full tracking-wider hover:opacity-80 transition-opacity flex items-center gap-1";
-  const shape = isNav
-    ? "text-[0.62rem] sm:text-[0.72rem] px-3 sm:px-4 py-2"
-    : "w-full justify-center text-sm px-4 py-3.5";
+  const shown = omitPhoneButton ? buttons.filter((b) => !b.isPhone) : buttons;
 
   return (
     <>
-      {buttons.map((b, i) => (
+      {shown.map((b, i) => (
         <Link
           key={i}
           href={b.href}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${base} ${shape} ${isNav ? "" : "mb-2.5 last:mb-0"}`}
+          className={`${base} ${shapes[variant]}`}
         >
           <span>{b.label}</span>
           {b.icon}
           {b.suffix && <span>{b.suffix}</span>}
           {b.note && (
-            <span className={`text-[0.55rem] text-white/60 ${isNav ? "hidden sm:inline" : ""}`}>
+            <span
+              className={`text-[0.55rem] text-white/60 ${variant === "nav" ? "hidden sm:inline" : ""}`}
+            >
               {b.note}
             </span>
           )}
