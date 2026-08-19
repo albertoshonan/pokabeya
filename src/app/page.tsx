@@ -29,7 +29,7 @@ const steps = [
   {
     step: "STEP 2",
     title: "入室",
-    desc: "暗証番号で解錠・入室",
+    desc: <>誰にも会わず<br />暗証番号で解錠・入室</>,
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
@@ -52,7 +52,7 @@ const steps = [
   {
     step: "STEP 4",
     title: "退室",
-    desc: "時間までに退出",
+    desc: <>時間までに退出<br />他のグループと被ることはありません</>,
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
