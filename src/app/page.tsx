@@ -12,10 +12,6 @@ const pricingPlans = [
   { label: "金土日祝日", price: Math.min(...rooms.map((r) => r.pricing.weekend)), featured: true },
 ];
 
-const minPack6h = Math.min(
-  ...rooms.flatMap((r) => r.packs.filter((p) => p.hours === 6).map((p) => p.weekday))
-);
-
 const steps = [
   {
     step: "STEP 1",
@@ -237,7 +233,7 @@ export default function Home() {
             <h2 className="font-[family-name:var(--font-playfair)] italic text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold text-black leading-tight">
               Plans
             </h2>
-            <p className="text-sm text-mid mt-1">料金プラン</p>
+            <p className="text-sm text-mid mt-1">料金プラン ※ミタベヤ、アキバベヤの場合</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             {pricingPlans.map((plan) => (
@@ -263,8 +259,8 @@ export default function Home() {
           </div>
           <div className="bg-off rounded-xl p-4 text-xs text-gray leading-relaxed">
             ※ 料金は1部屋あたりの料金です（人数割りではありません）<br />
-            ※ パック料金・オプション料金は各部屋のページをご覧ください（6h {formatPrice(minPack6h)}〜）<br />
-            ※ 延長は予約システムまたはLINEから対応可能です
+            ※ パック料金・オプション料金は各部屋のページをご覧ください<br />
+            ※ 延長は公式LINEにて承ります
           </div>
         </section>
       </ScrollReveal>
