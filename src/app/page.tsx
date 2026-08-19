@@ -162,7 +162,7 @@ export default function Home() {
           {[
             { icon: homeIcon, text: "駅チカ", sub: "都内5店舗展開" },
             { icon: clockIcon, text: "24時間営業", sub: "※一部特例あり" },
-            { icon: rfidIcon, text: "RFID/自動シャフラー完備", sub: null },
+            { icon: rfidIcon, text: "RFID搭載テーブル", sub: null },
             { icon: videoIcon, text: "YouTube配信/撮影OK", sub: null },
             { icon: gemIcon, text: <>ラグジュアリーな<br className="md:hidden" />ポーカーテーブル</>, sub: null },
             { icon: shieldIcon, text: "完全無人プライベート空間", sub: null },
