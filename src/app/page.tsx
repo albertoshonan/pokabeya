@@ -97,10 +97,21 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 min-h-[480px]">
           {/* Left: Text */}
           <div className="flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-16">
-            <h1 className="text-[clamp(2rem,4vw,2.8rem)] text-black leading-[1.3] mb-4">
-              <span className="block font-[family-name:var(--font-playfair)] italic">Your Private</span>
-              <span className="block font-[family-name:var(--font-playfair)] italic">Poker Room</span>
-            </h1>
+            <div className="flex items-center justify-between gap-4 mb-4">
+              <h1 className="text-[clamp(2rem,4vw,2.8rem)] text-black leading-[1.3]">
+                <span className="block font-[family-name:var(--font-playfair)] italic">Your Private</span>
+                <span className="block font-[family-name:var(--font-playfair)] italic">Poker Room</span>
+              </h1>
+              {/* 見出しだけだと余白が寂しいので、ロゴを並べて締める */}
+              <Image
+                src="/images/logo-dark.png"
+                alt="Pokabeya"
+                width={256}
+                height={256}
+                className="w-24 sm:w-28 lg:w-32 h-auto shrink-0"
+                priority
+              />
+            </div>
             <p className="text-sm font-medium text-dark mb-3">
               完全無人・RFID完備のプライベート空間
             </p>
