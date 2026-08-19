@@ -269,10 +269,22 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="bg-off rounded-xl p-4 text-xs text-gray leading-relaxed">
-            ※ 料金は1部屋あたりの料金です（人数割りではありません）<br />
-            ※ パック料金・オプション料金は各部屋のページをご覧ください<br />
-            ※ 延長は公式LINEにて承ります
+          <div className="bg-off rounded-xl p-4 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+            <div className="text-xs text-gray leading-relaxed">
+              ※ 料金は1部屋あたりの料金です（人数割りではありません）<br />
+              ※ パック料金・オプション料金は各部屋のページをご覧ください<br />
+              ※ 延長は公式LINEにて承ります
+            </div>
+            {/* 左の注記より目立たせたいので一段大きい文字にする */}
+            <div className="text-sm text-dark leading-relaxed">
+              <p className="mb-1">
+                <span className="font-semibold">キャンセルポリシー</span>
+                <span className="text-gray">　※下記のキャンセル料が合計金額にかかって参ります</span>
+              </p>
+              <p>2日前　25%</p>
+              <p>1日前　50%</p>
+              <p>当日　100%</p>
+            </div>
           </div>
         </section>
       </ScrollReveal>
