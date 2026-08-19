@@ -41,7 +41,7 @@ const steps = [
   {
     step: "STEP 3",
     title: "プレイ",
-    desc: "充実した環境で仲間とポーカーを楽しむ",
+    desc: <>充実した環境で<br />仲間とポーカーを楽しむ</>,
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="6" width="20" height="12" rx="2" />
