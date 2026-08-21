@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "Pokabeya - 完全無人 RFID ポーカールーム",
   description:
     "24時間営業の完全無人プライベートポーカールーム。RFID テーブル・オートシャフラー完備。新宿・秋葉原・渋谷・三田・池袋で展開中。",
+  appleWebApp: {
+    title: "Pokabeya ポカベヤ",
+  },
 };
 
 export default function RootLayout({
