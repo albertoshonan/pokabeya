@@ -5,7 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import BookingButtons from "@/components/BookingButtons";
-import { rooms, getRoomBySlug, getOtherRooms, formatPrice, options } from "@/data/rooms";
+import { rooms, getRoomBySlug, getOtherRooms, formatPrice, packDiscountPercent, options } from "@/data/rooms";
 
 export function generateStaticParams() {
   return rooms.map((room) => ({ slug: room.slug }));
@@ -197,7 +197,11 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">
                 {room.packs.map((pack) => (
                   <div key={pack.hours} className="border border-light rounded-xl p-3.5">
-                    <p className="text-xs text-mid mb-2 text-center">{pack.hours}時間パック</p>
+                    <p className="text-xs text-mid text-center">{pack.hours}時間パック</p>
+                    {/* お得感を出すため、通常料金からの割引率を料金表の上に赤字で添える */}
+                    <p className="text-[0.68rem] font-semibold text-red-600 mb-2 text-center">
+                      通常料金より{packDiscountPercent(room.pricing.weekday, pack.hours, pack.weekday)}%OFF!
+                    </p>
                     <div className="flex items-baseline justify-between">
                       <span className="text-[0.62rem] text-mid">平日</span>
                       <span className="text-sm font-bold text-black">{formatPrice(pack.weekday)}</span>
