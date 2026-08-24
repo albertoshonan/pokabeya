@@ -160,7 +160,7 @@ export default function Home() {
           {/* Right: Image */}
           <div className="relative min-h-[340px] md:min-h-0">
             <Image
-              src="/images/S__34218069_0.jpg"
+              src="/images/hero-top.jpg"
               alt="Pokabeya ポーカールーム"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
