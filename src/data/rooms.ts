@@ -320,3 +320,12 @@ export function getOtherRooms(slug: string): Room[] {
 export function formatPrice(price: number): string {
   return `¥${price.toLocaleString()}`;
 }
+
+/** パック料金が通常料金（1時間あたり料金 × 時間数）から何%引きかを返す */
+export function packDiscountPercent(
+  hourlyPrice: number,
+  hours: number,
+  packPrice: number
+): number {
+  return Math.round((1 - packPrice / (hourlyPrice * hours)) * 100);
+}
