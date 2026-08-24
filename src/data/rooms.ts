@@ -266,7 +266,13 @@ export const rooms: Room[] = [
     name: "Bukurobeya",
     nameJa: "ブクロベヤ",
     area: "池袋",
-    images: ["/images/bukurobeya-top.jpg"],
+    images: [
+      "/images/bukurobeya-top.jpg",
+      "/images/bukurobeya-03.jpg",
+      "/images/bukurobeya-08.jpg",
+      "/images/bukurobeya-05.jpg",
+      "/images/bukurobeya-04.jpg",
+    ],
     tagline: "完全無人 RFID ポーカールーム — 池袋駅すぐ",
     description:
       "ブクロベヤは池袋駅西口（北）から徒歩5分の好立地にオープン！\nRFIDテーブル・オートシャフラー・オリジナルチップやカードなど全てを完備。集めてくるのは仲間だけ。すぐにポーカーができます。\n部屋は都会のジャングルをイメージした作り。ラシャにもこだわり、かっこいい空間でいつでもポーカーを！\n\nスタッフは遠隔でLINEにてサポート。スタッフに会うこともございません。そしてスマートテレビにてPOKER GOも視聴可能。ポーカーをしながらのエンターテイメントも充実。部屋内では飲食も自由、持ち込みも自由。加熱式タバコであれば喫煙OKです！\n\nRFIDテーブルを使う際は、スタッフは全て遠隔でコントロールできます。\n皆さまのプレイをYouTubeに配信。その動画をリアルタイムやディレイ配信で楽しむ。\n自分たちのプレイ内容を記録しておくなど、使い方は無限大です！",
