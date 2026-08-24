@@ -90,7 +90,13 @@ export const rooms: Room[] = [
     name: "Jukubeya",
     nameJa: "ジュクベヤ",
     area: "新宿",
-    images: ["/images/jukubeya-top.jpg"],
+    images: [
+      "/images/jukubeya-top.jpg",
+      "/images/jukubeya-02.jpg",
+      "/images/jukubeya-03.jpg",
+      "/images/jukubeya-07.jpg",
+      "/images/jukubeya-11.jpg",
+    ],
     tagline: "完全無人 RFID ポーカールーム — JR新宿駅西口 徒歩5分",
     description:
       "ジュクベヤは、JR新宿駅西口から徒歩5分の好立地にある、完全無人のプライベートポーカースペースです。RFIDテーブル・オートシャフラー・オリジナルチップやカードなど全てを完備。集めてくるのは仲間だけ。手ぶらで来てポーカーができます。\n\nスタッフは遠隔でLINEにてサポート。スタッフに会うこともございません。そしてスマートテレビにてPOKER GOも視聴可能。ポーカーをしながらのエンターテイメントも充実。部屋内では飲食も自由、持ち込みも自由。加熱式タバコであれば喫煙OKです！\n\nRFIDテーブルを使う際は、スタッフは全て遠隔でコントロールできます。\n皆さまのプレイをYouTubeに配信。その動画をリアルタイムやディレイ配信で楽しむ。\n自分たちのプレイ内容を記録しておくなど、使い方は無限大です！",
