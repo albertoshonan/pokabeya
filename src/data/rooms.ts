@@ -145,6 +145,11 @@ export const rooms: Room[] = [
       "/images/shibubeya-07.jpg",
       "/images/shibubeya-10.jpg",
       "/images/shibubeya-05.jpg",
+      // スマホ表示の最下段3枚
+      "/images/shibubeya-11.jpg",
+      "/images/shibubeya-04.jpg",
+      "/images/shibubeya-08.jpg",
+      // 予備。PCは先頭5枚、スマホは先頭7枚までの表示のため現在は未使用
       "/images/shibubeya-06.jpg",
     ],
     tagline: "完全無人 RFID ポーカールーム — 渋谷ヒカリエ近く",
