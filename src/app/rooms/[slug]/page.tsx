@@ -106,8 +106,8 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
             </div>
           ))}
         </div>
-        {/* モバイル: メイン1枚 + サムネイル3枚の計4枚 */}
-        <div className="sm:hidden grid grid-cols-3 grid-rows-[180px_84px] gap-1.5 rounded-2xl overflow-hidden">
+        {/* モバイル: メイン1枚 + サムネイル3枚×2段の計7枠。写真が足りない枠は準備中表示 */}
+        <div className="sm:hidden grid grid-cols-3 grid-rows-[180px_84px_84px] gap-1.5 rounded-2xl overflow-hidden">
           <div className="col-span-3 relative">
             {room.images[0] ? (
               <Image src={room.images[0]} alt={room.nameJa} fill sizes="100vw" className="object-cover" />
@@ -117,12 +117,14 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
               </div>
             )}
           </div>
-          {[1, 2, 3].map((i) => (
+          {[1, 2, 3, 4, 5, 6].map((i) => (
             <div key={i} className="relative">
               {room.images[i] ? (
                 <Image src={room.images[i]} alt={`${room.nameJa} 写真${i + 1}`} fill sizes="33vw" className="object-cover" />
               ) : (
-                <div className="w-full h-full bg-off" />
+                <div className="w-full h-full bg-off flex items-center justify-center text-[0.6rem] text-mid">
+                  準備中
+                </div>
               )}
             </div>
           ))}
