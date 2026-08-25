@@ -290,6 +290,9 @@ export const rooms: Room[] = [
       "/images/bukurobeya-08.jpg",
       "/images/bukurobeya-05.jpg",
       "/images/bukurobeya-04.jpg",
+      // スマホ表示の最下段の2枚目・3枚目
+      "/images/bukurobeya-07.jpg",
+      "/images/bukurobeya-06.jpg",
     ],
     tagline: "完全無人 RFID ポーカールーム — 池袋駅すぐ",
     description:
