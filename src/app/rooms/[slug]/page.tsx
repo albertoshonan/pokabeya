@@ -106,15 +106,26 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
             </div>
           ))}
         </div>
-        {/* モバイル: メイン1枚 */}
-        <div className="sm:hidden relative h-[250px] rounded-2xl overflow-hidden">
-          {room.images[0] ? (
-            <Image src={room.images[0]} alt={room.nameJa} fill sizes="100vw" className="object-cover" />
-          ) : (
-            <div className="w-full h-full bg-off flex items-center justify-center text-xs text-mid">
-              写真準備中
+        {/* モバイル: メイン1枚 + サムネイル3枚の計4枚 */}
+        <div className="sm:hidden grid grid-cols-3 grid-rows-[180px_84px] gap-1.5 rounded-2xl overflow-hidden">
+          <div className="col-span-3 relative">
+            {room.images[0] ? (
+              <Image src={room.images[0]} alt={room.nameJa} fill sizes="100vw" className="object-cover" />
+            ) : (
+              <div className="w-full h-full bg-off flex items-center justify-center text-xs text-mid">
+                写真準備中
+              </div>
+            )}
+          </div>
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="relative">
+              {room.images[i] ? (
+                <Image src={room.images[i]} alt={`${room.nameJa} 写真${i + 1}`} fill sizes="33vw" className="object-cover" />
+              ) : (
+                <div className="w-full h-full bg-off" />
+              )}
             </div>
-          )}
+          ))}
         </div>
       </div>
       </ScrollReveal>
