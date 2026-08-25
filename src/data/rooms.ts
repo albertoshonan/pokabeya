@@ -194,6 +194,11 @@ export const rooms: Room[] = [
       "/images/mitabeya-03.jpg",
       "/images/mitabeya-08.jpg",
       "/images/mitabeya-11.jpg",
+      // スマホ表示の最下段3枚
+      "/images/mitabeya-07.jpg",
+      "/images/mitabeya-10.jpg",
+      "/images/mitabeya-04.jpg",
+      // 予備。PCは先頭5枚、スマホは先頭7枚までの表示のため現在は未使用
       "/images/mitabeya-02.jpg",
     ],
     tagline: "完全無人 RFID ポーカールーム — 慶應義塾大学東門の真横",
