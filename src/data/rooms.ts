@@ -244,6 +244,9 @@ export const rooms: Room[] = [
       "/images/akibabeya-04.jpg",
       "/images/akibabeya-10.jpg",
       "/images/akibabeya-03.jpg",
+      // スマホ表示の最下段の2枚目・3枚目
+      "/images/akibabeya-05.jpg",
+      "/images/akibabeya-01.jpg",
     ],
     tagline: "完全無人 RFID ポーカールーム — 銀座線末広町駅 徒歩2分",
     description:
