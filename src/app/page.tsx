@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import BookingButtons from "@/components/BookingButtons";
+import RfidSection from "@/components/RfidSection";
 import { rooms, formatPrice } from "@/data/rooms";
 import { LINE_URL } from "@/data/links";
 
@@ -287,6 +288,11 @@ export default function Home() {
             </div>
           </div>
         </section>
+      </ScrollReveal>
+
+      {/* RFID */}
+      <ScrollReveal>
+        <RfidSection />
       </ScrollReveal>
 
       {/* Flow */}
