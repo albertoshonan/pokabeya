@@ -87,11 +87,11 @@ export default function RfidSection() {
       </div>
 
       {/* 3カメ利用オプション。設計メモどおり、枠線の上に見出しを乗せる */}
-      <div className="mt-4 relative border border-black rounded-2xl px-7 pt-8 pb-7">
-        <span className="absolute -top-2.5 left-5 bg-white px-2 text-sm font-semibold text-black">
+      <div className="mt-4 relative border-2 border-alberto rounded-2xl px-7 pt-8 pb-7">
+        <span className="absolute -top-3 left-5 bg-white px-2 text-sm font-semibold text-alberto">
           {rfidThreeCamOption.name}
         </span>
-        <p className="text-xl sm:text-2xl font-bold text-black">
+        <p className="text-xl sm:text-2xl font-bold text-alberto">
           ご希望のRFID料金 +{formatPrice(rfidThreeCamOption.addonPrice)}
         </p>
       </div>
