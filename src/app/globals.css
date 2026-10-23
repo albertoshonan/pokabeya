@@ -7,6 +7,9 @@
   --color-mid: #999999;
   --color-light: #E8E8E8;
   --color-off: #F7F7F7;
+  /* ALBERTOのコーポレートカラー */
+  --color-alberto: #2B4D68;
+  --color-alberto-gold: #FFC400;
   --font-serif: "Playfair Display", "Georgia", serif;
 }
 
