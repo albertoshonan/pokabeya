@@ -73,13 +73,13 @@ export const options: OptionPlan[] = [
     ],
   },
   {
-    name: "遠隔打込みモード",
+    name: "遠隔打ち込みモード",
     tiers: [
       { label: "5時間以下", price: 20000 },
-      { label: "6時間以上", price: 28000 },
-      { label: "9時間以上", price: 40000 },
-      { label: "12時間以上", price: 69000 },
-      { label: "24時間以上", price: 96000 },
+      { label: "6時間パック", price: 28000 },
+      { label: "9時間パック", price: 40000 },
+      { label: "12時間パック", price: 69000 },
+      { label: "24時間パック", price: 96000 },
     ],
   },
 ];
