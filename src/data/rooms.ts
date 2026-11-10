@@ -188,7 +188,7 @@ export const rooms: Room[] = [
     slug: "mitabeya",
     name: "Mitabeya",
     nameJa: "ミタベヤ",
-    area: "三田",
+    area: "三田・田町",
     images: [
       "/images/mitabeya-top.jpg",
       "/images/mitabeya-03.jpg",
