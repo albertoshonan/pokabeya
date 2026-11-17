@@ -324,7 +324,6 @@ export const rooms: Room[] = [
       { hours: 12, weekday: 39744, weekend: 47250 },
       { hours: 24, weekday: 75072, weekend: 82950 },
     ],
-    excludedOptions: ["ゴミ処理お任せ", "お片付けお任せ", "全部お任せ"],
     mapEmbedUrl:
       "https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E6%B1%A0%E8%A2%8B1-2-6&hl=ja&z=17&output=embed",
   },
